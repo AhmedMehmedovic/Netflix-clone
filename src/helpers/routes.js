@@ -1,52 +1,68 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Route, Navigate, BrowserRouter, Routes } from "react-router-dom";
 
 export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
   return (
-    <Route
-      {...rest}
-      render={() => {
-        if (!user) {
-          return children;
-        }
+    <BrowserRouter>
+      <Routes>
+        <Route
+          {...rest}
+          render={() => {
+            if (!user) {
+              return children;
+            }
 
-        if (user) {
-          return (
-            <Navigate
-              to={{
-                pathname: loggedInPath,
-              }}
-            />
-          );
-        }
+            if (user) {
+              return (
+                <Navigate
+                  to={{
+                    pathname: loggedInPath,
+                  }}
+                />
+              );
+            }
 
-        return null;
-      }}
-    />
+            return null;
+          }}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export function ProtectedRoute({ user, children, ...rest }) {
   return (
-    <Route
-      {...rest}
-      render={({ location }) => {
-        if (user) {
-          return children;
-        }
-        if (!user) {
-          return (
-            <Navigate
-              to={{
-                pathname: "signin",
-                state: { from: location },
-              }}
-            />
-          );
-        }
-        return null;
-      }}
-    />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          {...rest}
+          render={({ location }) => {
+            if (user) {
+              return children;
+            }
+            if (!user) {
+              return (
+                <Navigate
+                  to={{
+                    pathname: "signin",
+                    state: { from: location },
+                  }}
+                />
+              );
+            }
+            return null;
+          }}
+        />
+      </Routes>
+    </BrowserRouter>
   );
+}
+
+export function ProtectedRoute1({ user, children }) {
+  if (!user) {
+    return <Navigate to="/" />;
+  }
+
+  return children;
 }
