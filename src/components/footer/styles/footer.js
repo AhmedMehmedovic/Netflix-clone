@@ -49,3 +49,8 @@ export const Break = styled.div`
   flex-basis: 100%;
   height: 0;
 `;
+
+export const Describe = styled.h3`
+  font-size: 18px;
+  color: #757575;
+`;

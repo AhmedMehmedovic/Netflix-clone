@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, useContext } from "react";
 import Fuse from "fuse.js";
-import { Header, Loading } from "../components";
+import { Card, Header, Loading, Player } from "../components";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 import { FirebaseContext } from "../context/firebase";
@@ -29,7 +29,7 @@ export default function BrowseContainer({ slides }) {
   }, [slides, category]);
 
   useEffect(() => {
-    const fuse = new Fuse(slideRows, { keys: ["data.description", "data.title", "data.genre"] });
+    const fuse = new Fuse(slideRows, { keys: ["data.description"] });
     const results = fuse.search(searchTerm).map(({ item }) => item);
 
     if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
@@ -81,7 +81,7 @@ export default function BrowseContainer({ slides }) {
         </Header.Feature>
       </Header>
 
-      {/* <Card.Group>
+      <Card.Group>
         {slideRows.map((slideItem) => (
           <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
             <Card.Title>{slideItem.title}</Card.Title>
@@ -104,7 +104,7 @@ export default function BrowseContainer({ slides }) {
             </Card.Feature>
           </Card>
         ))}
-      </Card.Group> */}
+      </Card.Group>
       <FooterContainer />
     </>
   ) : (

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Container, Row, Column, Link, Title, Text, Break } from "../footer/styles/footer";
+import { Container, Row, Column, Link, Title, Text, Break, Describe } from "../footer/styles/footer";
 
 export default function Footer({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -27,4 +27,7 @@ Footer.Text = function FooterText({ children, ...restProps }) {
 };
 Footer.Break = function FooterBreak({ children, ...restProps }) {
   return <Break {...restProps}>{children}</Break>;
+};
+Footer.Describe = function FooterDescribe({ children, ...restProps }) {
+  return <Describe {...restProps}>{children}</Describe>;
 };

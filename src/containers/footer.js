@@ -33,6 +33,20 @@ export function FooterContainer() {
           <Footer.Link href="#">Legal Notices</Footer.Link>
         </Footer.Column>
       </Footer.Row>
+      <Footer.Row>
+        <Footer.Column></Footer.Column>
+        <Footer.Column></Footer.Column>
+
+        <Footer.Describe>This app i build during my learning React.</Footer.Describe>
+      </Footer.Row>
+      <Footer.Row>
+        <Footer.Column></Footer.Column>
+
+        <Footer.Link href="linkedin.com/in/ahmed-mehmedovic-bb0b22125">LinkedIn profile</Footer.Link>
+        <Footer.Column>Copy Rights. Ahmed Mehmedović</Footer.Column>
+
+        <Footer.Link href="facebook.com/hipmede">Facebook profile</Footer.Link>
+      </Footer.Row>
     </Footer>
   );
 }
