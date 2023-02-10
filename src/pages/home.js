@@ -16,7 +16,7 @@ export default function Home() {
           <Feature.SubTitle>Watch anywhere. Cancel at any time.</Feature.SubTitle>
           <OptionForm>
             <OptionForm.Input placeholder="Email address" />
-            <OptionForm.Button>Try it now</OptionForm.Button>
+            <OptionForm.Button> Try it now</OptionForm.Button>
             <OptionForm.Break />
             <OptionForm.Text>Ready to watch? Enter your email to create or restart your membership</OptionForm.Text>
           </OptionForm>

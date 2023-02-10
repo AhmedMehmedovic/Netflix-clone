@@ -1,47 +1,37 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Signin } from "./pages";
 import * as ROUTES from "./constants/routes";
-import { Home, Browse, Signin, Signup } from "./pages/index";
-import { ProtectedRoute1 } from "./helpers/routes";
+import { IsUserRedirect } from "./helpers/routes";
 import { useAuthListener } from "./hooks";
 
-function App() {
+export default function App() {
   const { user } = useAuthListener();
+
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        {/* <Route
-          element={
-            <Routes>
-              <IsUserRedirect user={user} loggedInPath={ROUTES.SIGN_IN} path={ROUTES.SIGN_IN} replace />
-            </Routes>
-          }
-        ></Route>
-
         <Route
-          element={
-            <Routes>
-              <IsUserRedirect user={user} loggedInPath={ROUTES.SIGN_UP} path={ROUTES.SIGN_UP} exact />
-            </Routes>
+          path="about"
+          render={
+            <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_IN}>
+              <Signin />
+            </IsUserRedirect>
           }
-        ></Route> */}
-        <Route element={<ProtectedRoute1 user={user} path={ROUTES.BROWSE} exact />}></Route>
-        {/* <Route
-          element={
-            <Routes>
-              <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.HOME} exact />
-            </Routes>
-          }
-        ></Route> */}
-
-        <Route exact path={ROUTES.HOME} element={<Home />}></Route>
-        <Route exact path={ROUTES.BROWSE} element={<Browse />}></Route>
-        <Route exact path={ROUTES.SIGN_IN} element={<Signin />}></Route>
-        <Route exact path={ROUTES.SIGN_UP} element={<Signup />}></Route>
+        />
+        {/* <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_IN}>
+          <SignIn />
+        </IsUserRedirect>
+        <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_UP}>
+          <SignUp />
+        </IsUserRedirect>
+        <ProtectedRoute user={user} path={ROUTES.BROWSE}>
+          <Browse />
+        </ProtectedRoute>
+        <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.HOME}>
+          <Home />
+        </IsUserRedirect> */}
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
-
-export default App;
