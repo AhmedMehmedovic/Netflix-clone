@@ -1,23 +1,22 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+//import { render } from "react-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Route } from "react-router-dom";
 
-export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
-  let navigate = useNavigate();
+export function IsUserRedirect({ user, loggedInPath, path, ...rest }) {
   return (
-    <Route
+    <React.Fragment
       {...rest}
-      render={() => {
+      path={path}
+      element={() => {
         if (!user) {
-          return navigate(children);
+          return;
         }
 
         if (user) {
-          return navigate(loggedInPath);
+          return <Navigate to={loggedInPath} />;
         }
-
-        return null;
       }}
     />
   );
@@ -27,7 +26,7 @@ export function ProtectedRoute({ user, children, ...rest }) {
   return (
     <Route
       {...rest}
-      render={({ location }) => {
+      element={({ location }) => {
         if (user) {
           return children;
         }
