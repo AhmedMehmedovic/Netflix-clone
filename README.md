@@ -22,3 +22,5 @@ For seeding data in firebase use steps in /lib/firebase.prod.jsx file where I pu
 During this project I had to make some changes, becouse when the tutorial was recorded react-router-dom was in older version then latest (6.8.1), and I had to change routes of application.
 
 I put my personal information of firebase and other personal data in special file and that file is'nt uploaded on git.
+![app1](https://user-images.githubusercontent.com/90158693/219052366-5c21123a-d57f-4a5a-b24c-4a3378a9bc75.jpg)
+![app2](https://user-images.githubusercontent.com/90158693/219052407-5feecfa4-97ff-41c3-98f9-6bc4caf5ca37.jpg)
