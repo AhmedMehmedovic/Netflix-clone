@@ -30,6 +30,7 @@ export const Link = styled.p`
   color: #fff;
   text-decoration: none;
   margin-right: 30px;
+  font-size: x-large;
   font-weight: ${({ active }) => (active === "true" ? "700" : "normal")};
   cursor: pointer;
   &:hover {
@@ -121,10 +122,10 @@ export const Dropdown = styled.div`
   display: none;
   position: absolute;
   background-color: black;
-  padding: 10px;
-  width: 100px;
+  padding: 7px;
+  width: 127px;
   top: 32px;
-  right: 10px;
+  right: 0px;
   ${Group}:last-of-type ${Link} {
     cursor: pointer;
   }

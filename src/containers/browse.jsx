@@ -7,6 +7,7 @@ import logo from "../logo.svg";
 import { FirebaseContext } from "../context/firebase";
 import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
+import { Navigate } from "react-router-dom";
 
 export default function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("series");
@@ -39,6 +40,11 @@ export default function BrowseContainer({ slides }) {
     }
   }, [searchTerm]);
 
+  const handleSignOut = function () {
+    firebase.auth().signOut();
+    <Navigate to={ROUTES.HOME} replace />;
+  };
+
   return profile.displayName ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
@@ -64,7 +70,7 @@ export default function BrowseContainer({ slides }) {
                   <Header.TextLink>{user.displayName}</Header.TextLink>
                 </Header.Group>
                 <Header.Group>
-                  <Header.TextLink onClick={() => firebase.auth().signOut()}>Sign out</Header.TextLink>
+                  <Header.TextLink onClick={handleSignOut}>Sign out</Header.TextLink>
                 </Header.Group>
               </Header.Dropdown>
             </Header.Profile>
@@ -77,10 +83,13 @@ export default function BrowseContainer({ slides }) {
             Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he
             paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he`s part of the world around him.
           </Header.Text>
-          <Header.PlayButton>Play</Header.PlayButton>
+
+          <Player>
+            <Player.Button />
+            <Player.Video src="/videos/bunny.mp4" />
+          </Player>
         </Header.Feature>
       </Header>
-
       <Card.Group>
         {slideRows.map((slideItem) => (
           <Card key={`${category}-${slideItem.title.toLowerCase()}`}>

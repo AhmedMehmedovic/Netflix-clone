@@ -9,11 +9,6 @@ function Browse() {
 
   const slides = selectionFilter({ series, films });
 
-  console.log(slides);
-
-  ///Need movies and series
-  //need slides
-  //pass it to the browse container
   return <BrowseContainer slides={slides} />;
 }
 

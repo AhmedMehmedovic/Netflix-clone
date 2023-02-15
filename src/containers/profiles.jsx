@@ -3,8 +3,14 @@ import React from "react";
 import { Header, Profiles } from "../components";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
+import { Navigate } from "react-router-dom";
 
 export function SelectProfileContainer({ user, setProfile }) {
+  const login = function () {
+    setProfile({ displayName: user.displayName, photoURL: user.photoURL });
+    <Navigate to={ROUTES.BROWSE} />;
+  };
+
   return (
     <>
       <Header bg={false}>
@@ -16,7 +22,7 @@ export function SelectProfileContainer({ user, setProfile }) {
       <Profiles>
         <Profiles.Title>Who`s watching?</Profiles.Title>
         <Profiles.List>
-          <Profiles.User onClick={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })} data-testid="user-profile">
+          <Profiles.User onClick={login}>
             <Profiles.Picture src={user.photoURL} />
             <Profiles.Name>{user.displayName}</Profiles.Name>
           </Profiles.User>

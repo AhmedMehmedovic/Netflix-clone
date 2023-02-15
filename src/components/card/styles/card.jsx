@@ -4,7 +4,7 @@ export const Title = styled.p`
   font-size: 24px;
   color: #e5e5e5;
   font-weight: bold;
-  margin-left: 56px;
+  margin-left: 180px;
   margin-right: 56px;
   margin-top: 0;
 `;
@@ -29,9 +29,7 @@ export const Group = styled.div`
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
   ${({ margin }) => margin && `margin: ${margin}`};
   > ${Container}:first-of-type {
-    @media (min-width: 1100px) {
-      margin-top: -100px;
-    }
+    @media (min-width: 1100px);
   }
 `;
 
@@ -58,6 +56,7 @@ export const Text = styled.p`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;
 
 export const Meta = styled.div`

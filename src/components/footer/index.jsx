@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Container, Row, Column, Link, Title, Text, Break, Describe } from "../footer/styles/footer";
+import { Container, Row, Column, Link, Title, Text, Break, Describe } from "./styles/footer";
 
 export default function Footer({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
