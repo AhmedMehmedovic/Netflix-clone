@@ -2,7 +2,7 @@
 /node_modules
 /.pnp
 .pnp.js
-/lib/personalInfo.jsx
+!netflix\src\lib\personalInfo.jsx
 
 # testing
 /coverage
