@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/auth": "^0.21.3",
     "@react-icons/all-files": "^4.1.0",
     "firebase": "^7.24.0",
     "fuse.js": "^6.6.2",
