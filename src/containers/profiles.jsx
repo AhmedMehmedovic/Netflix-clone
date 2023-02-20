@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 export function SelectProfileContainer({ user, setProfile }) {
   const login = function () {
     setProfile({ displayName: user.displayName, photoURL: user.photoURL });
-    <Navigate to={ROUTES.BROWSE} />;
+    <Navigate to={ROUTES.BROWSE} replace />;
   };
 
   return (
