@@ -7,7 +7,7 @@ import logo from "../logo.svg";
 import { FirebaseContext } from "../context/firebase";
 import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("series");
@@ -15,6 +15,7 @@ export default function BrowseContainer({ slides }) {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [slideRows, setSlideRows] = useState([]);
+  const nav = useNavigate();
 
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
@@ -41,9 +42,9 @@ export default function BrowseContainer({ slides }) {
   }, [searchTerm]);
 
   const handleSignOut = function () {
-    <Navigate to={ROUTES.HOME} />;
-
     firebase.auth().signOut();
+
+    nav(ROUTES.HOME);
   };
 
   return profile.displayName ? (

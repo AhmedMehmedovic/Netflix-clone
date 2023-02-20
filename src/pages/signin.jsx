@@ -17,11 +17,13 @@ function Signin() {
 
   const handleSignin = (event) => {
     event.preventDefault();
+
     firebase
+
       .auth()
       .signInWithEmailAndPassword(email, password)
+
       .then(() => {
-        //push to the browser
         navigate(ROUTES.BROWSE);
       })
       .catch((error) => {
