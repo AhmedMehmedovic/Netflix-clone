@@ -29,7 +29,7 @@ export default function App() {
         <Route
           path={ROUTES.BROWSE}
           element={
-            <Protected isSignedIn={!isLoged}>
+            <Protected isSignedIn={isLoged}>
               <Browse />
             </Protected>
           }

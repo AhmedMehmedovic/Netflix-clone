@@ -41,8 +41,9 @@ export default function BrowseContainer({ slides }) {
   }, [searchTerm]);
 
   const handleSignOut = function () {
+    <Navigate to={ROUTES.HOME} />;
+
     firebase.auth().signOut();
-    <Navigate to={ROUTES.HOME} replace />;
   };
 
   return profile.displayName ? (
